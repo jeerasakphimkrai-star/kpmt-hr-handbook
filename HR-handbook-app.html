@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Handbook — KPMT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #0F1C2D;
+  --bg2:     #162436;
+  --bg3:     #1C2F45;
+  --bg4:     #213550;
+  --teal:    #00C4C5;
+  --teal2:   rgba(0,196,197,0.12);
+  --teal3:   rgba(0,196,197,0.06);
+  --orange:  #F07B20;
+  --orange2: rgba(240,123,32,0.12);
+  --yellow:  #FFCB45;
+  --green:   #34C98A;
+  --red:     #E05A5A;
+  --text:    #D8EDF5;
+  --text2:   #7AAFC3;
+  --text3:   #4D7A90;
+  --border:  #243B56;
+  --border2: #1A3049;
+  --navy:    #0A1520;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Sarabun', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.75;
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: var(--navy);
+  border-right: 1px solid var(--border2);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+}
+.sidebar-header {
+  padding: 20px 18px 14px;
+  border-bottom: 1px solid var(--border2);
+}
+.sidebar-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: 0.5px;
+}
+.sidebar-sub {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 2px;
+}
+.nav-group-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 18px 4px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 18px;
+  cursor: pointer;
+  font-size: 13.5px;
+  color: var(--text2);
+  border-left: 3px solid transparent;
+  transition: all .15s;
+}
+.nav-item:hover { background: rgba(0,196,197,.07); color: var(--text); }
+.nav-item.active { background: rgba(0,196,197,.1); color: var(--teal); border-left-color: var(--teal); }
+.nav-icon { font-size: 15px; width: 18px; text-align: center; flex-shrink: 0; }
+
+.main { flex: 1; overflow-y: auto; }
+.panel { display: none; padding: 28px 32px; max-width: 900px; }
+.panel.active { display: block; }
+
+.search-wrap { padding: 16px 18px 8px; }
+.search-box {
+  width: 100%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-size: 13px;
+  font-family: 'Sarabun', sans-serif;
+  outline: none;
+}
+.search-box:focus { border-color: var(--teal); }
+
+.page-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+.page-subtitle { color: var(--text2); font-size: 14px; margin-bottom: 24px; }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 28px 0 12px;
+  padding-left: 10px;
+  border-left: 3px solid var(--teal);
+}
+
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.card-title {
+  font-weight: 600;
+  color: var(--teal);
+  font-size: 14.5px;
+  margin-bottom: 8px;
+}
+
+.info-box {
+  background: var(--teal2);
+  border: 1px solid rgba(0,196,197,.25);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.warn-box {
+  background: var(--orange2);
+  border: 1px solid rgba(240,123,32,.25);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.warn-box strong, .info-box strong { display: block; margin-bottom: 4px; font-size: 13px; }
+
+.table-wrap { overflow-x: auto; margin-bottom: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th {
+  background: var(--bg3);
+  color: var(--teal);
+  font-weight: 600;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  letter-spacing: .4px;
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border2);
+  color: var(--text);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.02); }
+td.num { text-align: right; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-teal  { background: var(--teal2); color: var(--teal); }
+.badge-orange{ background: var(--orange2); color: var(--orange); }
+.badge-green { background: rgba(52,201,138,.12); color: var(--green); }
+.badge-red   { background: rgba(224,90,90,.12); color: var(--red); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.stat-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.stat-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1.1;
+}
+.stat-val.orange { color: var(--orange); }
+.stat-val.green  { color: var(--green); }
+.stat-unit { font-size: 14px; color: var(--text2); margin-left: 2px; }
+.stat-label { font-size: 12.5px; color: var(--text2); margin-top: 4px; }
+
+ul.list { padding-left: 20px; margin: 8px 0; }
+ul.list li { margin-bottom: 5px; font-size: 14px; }
+.tag { color: var(--teal); font-weight: 600; }
+.orange-tag { color: var(--orange); font-weight: 600; }
+
+.home-hero {
+  background: linear-gradient(135deg, #0d2035 0%, #122a42 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 28px 24px;
+  margin-bottom: 24px;
+}
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.hero-sub { color: var(--text2); font-size: 15px; margin-bottom: 18px; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-chip {
+  background: rgba(0,196,197,.1);
+  border: 1px solid rgba(0,196,197,.2);
+  color: var(--teal);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.hero-chip:hover { background: rgba(0,196,197,.2); }
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.chapter-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.chapter-card:hover { border-color: var(--teal); background: var(--bg3); transform: translateY(-1px); }
+.ch-num { font-family:'Barlow Condensed',sans-serif; font-size:11px; color:var(--text3); letter-spacing:1px; text-transform:uppercase; }
+.ch-title { font-size: 14.5px; font-weight: 600; color: var(--text); margin: 4px 0; }
+.ch-desc { font-size: 12px; color: var(--text2); line-height: 1.4; }
+
+.qref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.qref-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+.qref-head { font-size: 12px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 10px; }
+.qref-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--border2); font-size: 13.5px; }
+.qref-row:last-child { border-bottom: none; }
+.qref-k { color: var(--text2); }
+.qref-v { font-weight: 600; color: var(--text); font-family: 'Barlow Condensed', sans-serif; font-size: 15px; }
+
+.search-results { padding: 16px 32px; }
+.search-result-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; cursor: pointer; transition: all .15s; }
+.search-result-item:hover { border-color: var(--teal); }
+.sri-ch { font-size: 11px; color: var(--text3); }
+.sri-title { font-size: 14px; font-weight: 600; color: var(--text); }
+
+.footer { border-top: 1px solid var(--border2); padding: 14px 0 0; margin-top: 24px; font-size: 11.5px; color: var(--text3); }
+
+/* ── Mobile ── */
+.mobile-bar { display: none; }
+.mob-menu-overlay { display: none; }
+
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+  .sidebar { display: none; }
+  .main { width: 100%; padding-top: 52px; padding-bottom: 64px; }
+  .panel { padding: 14px 14px 24px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .qref-grid { grid-template-columns: 1fr; }
+  .chapter-grid { grid-template-columns: 1fr 1fr; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .page-title { font-size: 1.15em; }
+  .page-subtitle { font-size: 0.82em; }
+
+  /* Top bar */
+  .mob-topbar {
+    display: flex;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 52px;
+    background: var(--navy);
+    border-bottom: 1px solid var(--border2);
+    align-items: center;
+    padding: 0 12px;
+    gap: 8px;
+    z-index: 100;
+  }
+  .mob-topbar-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px; font-weight: 700;
+    color: var(--teal); flex: 1;
+  }
+  .mob-topbar-logo small { font-size: 10px; color: var(--text3); font-weight:400; font-family:'Sarabun',sans-serif; display:block; }
+  .mob-hdr-btn {
+    padding: 6px 10px;
+    background: rgba(0,196,197,0.12);
+    border: 1px solid rgba(0,196,197,0.3);
+    border-radius: 7px;
+    color: var(--teal);
+    font-size: 12px; font-weight: 600;
+    cursor: pointer;
+    font-family: 'Sarabun', sans-serif;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* Bottom bar */
+  .mobile-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 58px;
+    background: var(--navy);
+    border-top: 1px solid var(--border2);
+    z-index: 100;
+  }
+  .mob-btn {
+    flex: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 2px;
+    font-size: 10px; color: var(--text3);
+    cursor: pointer; border: none; background: none;
+    font-family: 'Sarabun', sans-serif;
+    padding: 4px 2px;
+    -webkit-tap-highlight-color: rgba(0,196,197,0.2);
+    touch-action: manipulation;
+  }
+  .mob-btn.active { color: var(--teal); }
+  .mob-btn .mob-icon { font-size: 19px; line-height: 1.1; }
+
+  /* Full-screen chapter menu */
+  .mob-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--navy);
+    z-index: 200;
+    overflow-y: auto;
+    padding: 0 0 20px;
+  }
+  .mob-menu-overlay.open { display: block; }
+  .mob-menu-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border2);
+    position: sticky; top: 0;
+    background: var(--navy);
+    z-index: 1;
+  }
+  .mob-menu-head-title { font-size: 16px; font-weight: 700; color: var(--teal); }
+  .mob-menu-close {
+    font-size: 22px; color: var(--text2);
+    background: none; border: none; cursor: pointer; padding: 4px 8px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .mob-menu-section { font-size: 11px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; padding: 14px 16px 4px; }
+  .mob-menu-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 13px 16px;
+    border-bottom: 1px solid rgba(36,59,86,0.5);
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,196,197,0.15);
+    touch-action: manipulation;
+    background: none; border-left: none; border-right: none; border-top: none;
+    width: 100%; text-align: left;
+    font-family: 'Sarabun', sans-serif;
+    color: var(--text2); font-size: 14px;
+  }
+  .mob-menu-item:active { background: rgba(0,196,197,0.1); }
+  .mob-menu-icon { font-size: 18px; width: 26px; text-align: center; flex-shrink: 0; }
+  .mob-menu-label { flex: 1; }
+  .mob-menu-sub { font-size: 11px; color: var(--text3); display: block; margin-top: 1px; }
+
+  /* chapter card & hero chip tap */
+  .chapter-card, .hero-chip {
+    -webkit-tap-highlight-color: rgba(0,196,197,0.15);
+    touch-action: manipulation;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">KPMT HR Guide</div>
+    <div class="sidebar-sub">คู่มือพนักงาน — ฉบับดิจิทัล</div>
+    <a href="HR ระเบียบข้อบังคับ KPMT.pdf" target="_blank" title="เปิดไฟล์ต้นฉบับ PDF"
+       style="display:flex;align-items:center;gap:6px;margin-top:12px;padding:7px 12px;background:rgba(0,196,197,0.12);border:1px solid rgba(0,196,197,0.35);border-radius:8px;color:var(--teal);font-size:0.82em;font-weight:600;text-decoration:none;transition:background .2s"
+       onmouseover="this.style.background='rgba(0,196,197,0.22)'" onmouseout="this.style.background='rgba(0,196,197,0.12)'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+      ต้นฉบับ PDF
+    </a>
+  </div>
+  <div class="search-wrap">
+    <input class="search-box" id="searchInput" placeholder="🔍 ค้นหาหัวข้อ..." oninput="doSearch(this.value)">
+  </div>
+  <div class="nav-group-label">ภาพรวม</div>
+  <div class="nav-item active" onclick="show('home',this)"><span class="nav-icon">🏠</span> หน้าหลัก</div>
+  <div class="nav-item" onclick="show('qref',this)"><span class="nav-icon">⚡</span> Quick Reference</div>
+  <div class="nav-group-label">บทที่ 1–5</div>
+  <div class="nav-item" onclick="show('ch1',this)"><span class="nav-icon">📋</span> การจ้างงาน & เริ่มงาน</div>
+  <div class="nav-item" onclick="show('ch2',this)"><span class="nav-icon">🕐</span> เวลาทำงาน</div>
+  <div class="nav-item" onclick="show('ch3',this)"><span class="nav-icon">📅</span> การลา</div>
+  <div class="nav-item" onclick="show('ch4',this)"><span class="nav-icon">💰</span> ค่าจ้าง & OT</div>
+  <div class="nav-item" onclick="show('ch5',this)"><span class="nav-icon">🏥</span> สวัสดิการ</div>
+  <div class="nav-group-label">บทที่ 6–10</div>
+  <div class="nav-item" onclick="show('ch6',this)"><span class="nav-icon">🔒</span> ความปลอดภัย & IT</div>
+  <div class="nav-item" onclick="show('ch7',this)"><span class="nav-icon">👤</span> เรื่องส่วนตัว</div>
+  <div class="nav-item" onclick="show('ch8',this)"><span class="nav-icon">✈️</span> ค่าเดินทาง</div>
+  <div class="nav-item" onclick="show('ch9',this)"><span class="nav-icon">📜</span> จรรยาบรรณ & วินัย</div>
+  <div class="nav-item" onclick="show('ch10',this)"><span class="nav-icon">🤝</span> สิ้นสุดสัญญา & ชดเชย</div>
+  <div class="nav-item" onclick="show('kubota',this)"><span class="nav-icon">🌏</span> นโยบาย Kubota Group</div>
+</nav>
+
+<div class="main" id="mainContent">
+
+<!-- HOME -->
+<div class="panel active" id="panel-home">
+  <div class="home-hero">
+    <div class="hero-title">คู่มือพนักงาน KPMT</div>
+    <div class="hero-sub">Kubota Precision Machinery Thailand — ระเบียบข้อบังคับการทำงาน ฉบับสมบูรณ์</div>
+    <div class="hero-chips">
+      <span class="hero-chip" onclick="show('ch3',null)">📅 วันลา</span>
+      <span class="hero-chip" onclick="show('ch4',null)">💰 OT & เบี้ยเลี้ยง</span>
+      <span class="hero-chip" onclick="show('ch5',null)">🏥 สวัสดิการ</span>
+      <span class="hero-chip" onclick="show('ch8',null)">✈️ เดินทาง</span>
+      <span class="hero-chip" onclick="show('ch10',null)">💼 ค่าชดเชย</span>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="stat-card">
+      <div class="stat-val">10<span class="stat-unit">–18</span></div>
+      <div class="stat-label">วันลาพักร้อน/ปี (ตามอายุงาน)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val orange">13</div>
+      <div class="stat-label">วันหยุดประเพณี/ปี</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val green">28</div>
+      <div class="stat-label">วันจ่ายเงินเดือน (ทุกเดือน)</div>
+    </div>
+  </div>
+
+  <div class="section-title">เลือกบทที่ต้องการ</div>
+  <div class="chapter-grid">
+    <div class="chapter-card" onclick="show('ch1',null)">
+      <div class="ch-num">บทที่ 1</div><div class="ch-title">การจ้างงาน</div>
+      <div class="ch-desc">เริ่มงาน ทดลองงาน ประเภทพนักงาน</div>
+    </div>
+    <div class="chapter-card" onclick="show('ch2',null)">
+      <div class="ch-num">บทที่ 2</div><div class="ch-title">เวลาทำงาน</div>
+      <div class="ch-desc">ชั่วโมงทำงาน วันหยุด ช่วงพัก</div>
+    </div>
+    <div class="chapter-card" onclick="show('ch3',null)">
+      <div class="ch-num">บทที่ 3</div><div class="ch-title">การลา</div>
+      <div class="ch-desc">ลาพักร้อน ลาป่วย ลากิจ ลาคลอด</div>
+    </div>
+    <div class="chapter-card" onclick="show('ch4',null)">
+      <div class="ch-num">บทที่ 4</div><div class="ch-title">ค่าจ้าง & OT</div>
+      <div class="ch-desc">คำนวณ OT เบี้ยกะ เบี้ยขยัน ค่าน้ำมัน</div>
+    </div>
+    <div class="chapter-card" onclick="show('ch5',null)">
+      <div class="ch-num">บทที่ 5</div><div class="ch-title">สวัสดิการ</div>
+      <div class="ch-desc">ประกันสุขภาพ PVD ประกันอุบัติเหตุ</div>
+    </div>
+    <div class="chapter-card" onclick="show('ch6',null)">
+      <div class="ch-num">บทที่ 6</div><div class="ch-title">ความปลอดภัย</div>
+      <div class="ch-desc">ความปลอดภัย IT อาวุธ ยาเสพติด</div>
+    </div>
+    <div class="chapter-card" onclick="show('ch7',null)">
+      <div class="ch-num">บทที่ 7</div><div class="ch-title">เรื่องส่วนตัว</div>
+      <div class="ch-desc">การขาดงาน ประเมินผล ข้อมูลส่วนตัว</div>
+    </div>
+    <div class="chapter-card" onclick="show('ch8',null)">
+      <div class="ch-num">บทที่ 8</div><div class="ch-title">ค่าเดินทาง</div>
+      <div class="ch-desc">เบี้ยเลี้ยง ที่พัก ต่างประเทศ</div>
+    </div>
+    <div class="chapter-card" onclick="show('ch9',null)">
+      <div class="ch-num">บทที่ 9</div><div class="ch-title">จรรยาบรรณ & วินัย</div>
+      <div class="ch-desc">หลักจริยธรรม ผลประโยชน์ทับซ้อน โทษ</div>
+    </div>
+    <div class="chapter-card" onclick="show('ch10',null)">
+      <div class="ch-num">บทที่ 10</div><div class="ch-title">ค่าชดเชย</div>
+      <div class="ch-desc">เกษียณ เลิกจ้าง ค่าชดเชยตามกฎหมาย</div>
+    </div>
+    <div class="chapter-card" onclick="show('kubota',null)">
+      <div class="ch-num">ภาคผนวก</div><div class="ch-title">Kubota Group</div>
+      <div class="ch-desc">นโยบาย หลักการ แนวปฏิบัติ กลุ่มคูโบต้า</div>
+    </div>
+  </div>
+
+  <div class="footer">จีรศักดิ์ พิมพ์ไกร / Jeerasak Pimkrai · วิศวกร | Production Engineering (PE) · KPMT</div>
+</div>
+
+<!-- QUICK REF -->
+<div class="panel" id="panel-qref">
+  <div class="page-title">⚡ Quick Reference</div>
+  <div class="page-subtitle">ข้อมูลที่ใช้บ่อยในชีวิตประจำวัน</div>
+  <div class="qref-grid">
+    <div class="qref-card">
+      <div class="qref-head">📅 วันลา</div>
+      <div class="qref-row"><span class="qref-k">ลาพักร้อน (1–5 ปี)</span><span class="qref-v">10 วัน</span></div>
+      <div class="qref-row"><span class="qref-k">ลาพักร้อน (5–10 ปี)</span><span class="qref-v">14 วัน</span></div>
+      <div class="qref-row"><span class="qref-k">ลาพักร้อน (10 ปี+)</span><span class="qref-v">18 วัน</span></div>
+      <div class="qref-row"><span class="qref-k">ลาป่วย (ปกติ)</span><span class="qref-v">30 วัน/ปี</span></div>
+      <div class="qref-row"><span class="qref-k">ลาป่วย (ขยายได้)</span><span class="qref-v">75 วัน/ปี</span></div>
+      <div class="qref-row"><span class="qref-k">ลากิจ</span><span class="qref-v">5 วัน/ปี</span></div>
+      <div class="qref-row"><span class="qref-k">ลาคลอด (ได้ค่าจ้าง)</span><span class="qref-v">53 วัน</span></div>
+      <div class="qref-row"><span class="qref-k">ลาคลอด (รวมทั้งหมด)</span><span class="qref-v">98 วัน</span></div>
+    </div>
+    <div class="qref-card">
+      <div class="qref-head">💰 OT & เงินเดือน</div>
+      <div class="qref-row"><span class="qref-k">OT วันทำงาน</span><span class="qref-v">1.5×</span></div>
+      <div class="qref-row"><span class="qref-k">ชม.ปกติวันหยุด</span><span class="qref-v">1.5×</span></div>
+      <div class="qref-row"><span class="qref-k">OT วันหยุด</span><span class="qref-v">3×</span></div>
+      <div class="qref-row"><span class="qref-k">สูตรค่าจ้าง/ชม.</span><span class="qref-v">เงินเดือน ÷ 240</span></div>
+      <div class="qref-row"><span class="qref-k">วันจ่ายเงินเดือน</span><span class="qref-v">วันที่ 28</span></div>
+      <div class="qref-row"><span class="qref-k">วันหยุดประเพณี</span><span class="qref-v">13 วัน/ปี</span></div>
+    </div>
+    <div class="qref-card">
+      <div class="qref-head">🌙 เบี้ยเพิ่มเติม</div>
+      <div class="qref-row"><span class="qref-k">กะกลางคืน (ปฏิบัติการ)</span><span class="qref-v">110 บ./กะ</span></div>
+      <div class="qref-row"><span class="qref-k">กะกลางคืน (บังคับบัญชา)</span><span class="qref-v">200 บ./กะ</span></div>
+      <div class="qref-row"><span class="qref-k">เบี้ยขยัน เดือน 1</span><span class="qref-v">500 บ./เดือน</span></div>
+      <div class="qref-row"><span class="qref-k">เบี้ยขยัน เดือน 2</span><span class="qref-v">600 บ./เดือน</span></div>
+      <div class="qref-row"><span class="qref-k">เบี้ยขยัน เดือน 3+</span><span class="qref-v">1,000 บ./เดือน</span></div>
+      <div class="qref-row"><span class="qref-k">ค่าสิ่งแวดล้อม</span><span class="qref-v">400 บ./เดือน</span></div>
+    </div>
+    <div class="qref-card">
+      <div class="qref-head">🏥 สวัสดิการสุขภาพ</div>
+      <div class="qref-row"><span class="qref-k">OPD รพ.เอกชน (ต่อปี)</span><span class="qref-v">≤ 15,000 บ.</span></div>
+      <div class="qref-row"><span class="qref-k">IPD ห้องพัก (บังคับบัญชา)</span><span class="qref-v">≤ 1,700 บ./วัน</span></div>
+      <div class="qref-row"><span class="qref-k">IPD ห้องพัก (ปฏิบัติการ)</span><span class="qref-v">≤ 1,300 บ./วัน</span></div>
+      <div class="qref-row"><span class="qref-k">ICU</span><span class="qref-v">≤ 4,500 บ./วัน</span></div>
+      <div class="qref-row"><span class="qref-k">ประกันอุบัติเหตุ</span><span class="qref-v">300,000 บ.</span></div>
+      <div class="qref-row"><span class="qref-k">ค่าคลอดบุตร</span><span class="qref-v">≤ 15,000 บ./ครั้ง</span></div>
+    </div>
+    <div class="qref-card">
+      <div class="qref-head">✈️ เดินทางในประเทศ</div>
+      <div class="qref-row"><span class="qref-k">เบี้ยเลี้ยง/วัน (เต็มวัน)</span><span class="qref-v">300 บ.</span></div>
+      <div class="qref-row"><span class="qref-k">ที่พัก กลุ่ม 1 (ระดับ S)</span><span class="qref-v">≤ 1,300 บ./คืน</span></div>
+      <div class="qref-row"><span class="qref-k">ที่พัก กลุ่ม 2 (ระดับ S)</span><span class="qref-v">≤ 900 บ./คืน</span></div>
+      <div class="qref-row"><span class="qref-k">น้ำมันเบนซิน (≤1,000 กม.)</span><span class="qref-v">7.30 บ./กม.</span></div>
+      <div class="qref-row"><span class="qref-k">น้ำมันดีเซล (≤1,000 กม.)</span><span class="qref-v">6.60 บ./กม.</span></div>
+    </div>
+    <div class="qref-card">
+      <div class="qref-head">📜 JLPT & PVD</div>
+      <div class="qref-row"><span class="qref-k">JLPT N1</span><span class="qref-v">2,000 บ./เดือน</span></div>
+      <div class="qref-row"><span class="qref-k">JLPT N2</span><span class="qref-v">1,200 บ./เดือน</span></div>
+      <div class="qref-row"><span class="qref-k">JLPT N3</span><span class="qref-v">800 บ./เดือน</span></div>
+      <div class="qref-row"><span class="qref-k">PVD บริษัทสมทบ (< 3 ปี)</span><span class="qref-v">5%</span></div>
+      <div class="qref-row"><span class="qref-k">PVD บริษัทสมทบ (10–15 ปี)</span><span class="qref-v">8%</span></div>
+      <div class="qref-row"><span class="qref-k">PVD บริษัทสมทบ (15 ปี+)</span><span class="qref-v">10%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CH1 -->
+<div class="panel" id="panel-ch1">
+  <div class="page-title">📋 บทที่ 1 — การจ้างงาน & เริ่มงาน</div>
+  <div class="page-subtitle">ประเภทพนักงาน ทดลองงาน กระบวนการรับเข้า</div>
+
+  <div class="info-box">
+    <strong>💡 หลักการสำคัญ</strong>
+    การจ้างงานที่ KPMT เป็นไปโดย <span class="tag">ความสมัครใจ</span> ทั้งสองฝ่าย สิ้นสุดได้ตลอดเวลาโดยแจ้งล่วงหน้า <span class="tag">ไม่น้อยกว่า 30 วัน (1 งวดการจ่ายค่าจ้าง)</span>
+  </div>
+
+  <div class="section-title">ประเภทพนักงาน</div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">👨‍💼 พนักงานประจำ</div>
+      <ul class="list">
+        <li>ผ่านทดลองงานแล้ว</li>
+        <li>สิทธิ์สวัสดิการเต็มรูปแบบ</li>
+        <li>สัญญาไม่มีกำหนดเวลา</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🔄 พนักงานทดลองงาน</div>
+      <ul class="list">
+        <li>สูงสุด <span class="tag">120 วัน</span></li>
+        <li>ขยายได้ รวมไม่เกิน 12 เดือน</li>
+        <li>เลิกจ้างได้ทันทีถ้าไม่ผ่าน</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📄 สัญญาพิเศษ</div>
+      <ul class="list">
+        <li>สัญญา ≤ 1 ปี ต่อครั้ง</li>
+        <li>งานโครงการ/ชั่วคราว</li>
+        <li>ครบกำหนดสิ้นสุดอัตโนมัติ</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">กระบวนการรับเข้าทำงาน</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ขั้นตอน</th><th>รายละเอียด</th></tr>
+      <tr><td>1. ตรวจสอบประวัติ</td><td>ตรวจสอบประวัติอาชญากรรม การทำงาน และอ้างอิง</td></tr>
+      <tr><td>2. ตรวจสุขภาพ</td><td>ตรวจสุขภาพก่อนเริ่มงาน (บังคับ)</td></tr>
+      <tr><td>3. ส่งเอกสาร</td><td>บัตรประชาชน ทะเบียนบ้าน วุฒิการศึกษา ใบรับรองแพทย์ รูปถ่าย</td></tr>
+      <tr><td>4. ทดลองงาน</td><td>≤ 120 วัน (ขยายได้ รวมไม่เกิน 12 เดือน)</td></tr>
+      <tr><td>5. บรรจุประจำ</td><td>ผ่านทดลองงาน → สิทธิ์สวัสดิการครบ</td></tr>
+    </table>
+  </div>
+
+  <div class="warn-box">
+    <strong>⚠️ ระหว่างทดลองงาน</strong>
+    บริษัทเลิกจ้างได้ทันที ไม่ต้องแจ้งล่วงหน้า ไม่มีค่าชดเชย หากพนักงานมีคุณสมบัติไม่เหมาะสม
+  </div>
+</div>
+
+<!-- CH2 -->
+<div class="panel" id="panel-ch2">
+  <div class="page-title">🕐 บทที่ 2 — เวลาทำงาน & วันหยุด</div>
+  <div class="page-subtitle">ชั่วโมงทำงาน เวลาพัก วันหยุดประเพณี</div>
+
+  <div class="grid-2">
+    <div class="stat-card"><div class="stat-val">48</div><div class="stat-label">ชั่วโมงทำงานสูงสุด/สัปดาห์ (ตามกฎหมาย)</div></div>
+    <div class="stat-card"><div class="stat-val orange">13</div><div class="stat-label">วันหยุดประเพณี/ปี (ตามประกาศรายปี)</div></div>
+  </div>
+
+  <div class="section-title">ตารางเวลาทำงาน (จันทร์–เสาร์)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ช่วงเวลา</th><th>กิจกรรม</th></tr>
+      <tr><td>08:00 – 10:00</td><td>ทำงาน</td></tr>
+      <tr><td>10:00 – 10:15</td><td><span class="badge badge-green">พักเช้า 15 นาที</span></td></tr>
+      <tr><td>10:15 – 12:00</td><td>ทำงาน</td></tr>
+      <tr><td>12:00 – 13:00</td><td><span class="badge badge-green">พักกลางวัน 1 ชั่วโมง</span></td></tr>
+      <tr><td>13:00 – 15:00</td><td>ทำงาน</td></tr>
+      <tr><td>15:00 – 15:10</td><td><span class="badge badge-green">พักบ่าย 10 นาที</span></td></tr>
+      <tr><td>15:10 – 17:00</td><td>ทำงาน</td></tr>
+      <tr><td>17:00 เป็นต้นไป</td><td><span class="badge badge-orange">OT (ถ้ามี)</span></td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">วันทำงานและวันหยุด</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">📅 วันทำงานปกติ</div>
+      <ul class="list">
+        <li>วันจันทร์ – เสาร์: 08:00–17:00</li>
+        <li>วันอาทิตย์: <span class="badge badge-green">หยุดประจำสัปดาห์</span></li>
+        <li>วันเสาร์: หยุดอย่างน้อย <span class="tag">1 วัน/เดือน</span></li>
+        <li>สูงสุดไม่เกิน 48 ชม./สัปดาห์</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🎉 วันหยุดประเพณี</div>
+      <ul class="list">
+        <li><span class="tag">13 วัน/ปี</span> (ตามประกาศรายปี)</li>
+        <li>รวมวันสำคัญแห่งชาติและเทศกาล</li>
+        <li>หยุดไม่ครบ → ชดเชยหรือจ่าย OT</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>💡 ชั่วโมงทำงานจริงต่อวัน</strong>
+    08:00–17:00 = 9 ชม. หักพัก 1 ชม. 25 นาที = ทำงานจริง <span class="tag">7 ชม. 35 นาที/วัน</span>
+  </div>
+</div>
+
+<!-- CH3 -->
+<div class="panel" id="panel-ch3">
+  <div class="page-title">📅 บทที่ 3 — การลาประเภทต่าง ๆ</div>
+  <div class="page-subtitle">สิทธิ์ลาพักร้อน ลาป่วย ลากิจ ลาคลอด และอื่น ๆ ตามระเบียบจริง</div>
+
+  <div class="section-title">ลาพักร้อน (Annual Leave)</div>
+  <div class="info-box">
+    <strong>✅ นับจากวันที่บรรจุเป็นพนักงานประจำ ต้องทำงานครบ 1 ปีก่อนจึงใช้ได้</strong>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>อายุงาน</th><th>วันลาพักร้อน/ปี</th><th>สะสมได้สูงสุด</th></tr>
+      <tr><td>1 – 5 ปี</td><td class="num tag">10 วันทำงาน</td><td class="num">20 วัน</td></tr>
+      <tr><td>5 – 10 ปี</td><td class="num tag">14 วันทำงาน</td><td class="num">28 วัน</td></tr>
+      <tr><td>10 ปีขึ้นไป</td><td class="num tag">18 วันทำงาน</td><td class="num">36 วัน</td></tr>
+    </table>
+  </div>
+  <div class="warn-box">
+    <strong>⚠️ การสะสมวันลา</strong>
+    สะสมได้สูงสุด 2 เท่าของสิทธิ์ต่อปี วันที่เกินจะหมดอายุ ควรวางแผนใช้สิทธิ์ให้ครบ
+  </div>
+
+  <div class="section-title">ลาป่วย (Sick Leave)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ประเภท</th><th>วัน/ปี</th><th>ค่าจ้าง</th><th>เงื่อนไข</th></tr>
+      <tr><td>ลาป่วยทั่วไป</td><td class="num">30 วัน</td><td><span class="badge badge-green">เต็มอัตรา</span></td><td>ลา 1–3 วัน ไม่ต้องมีใบแพทย์</td></tr>
+      <tr><td>ลาป่วยต่อเนื่อง</td><td class="num">75 วัน</td><td><span class="badge badge-green">เต็มอัตรา</span></td><td>เกิน 3 วัน ต้องมีใบรับรองแพทย์</td></tr>
+      <tr><td>ลาป่วยเนื่องจากงาน (WCD)</td><td class="num">150 วัน</td><td><span class="badge badge-green">เต็มอัตรา</span></td><td>บาดเจ็บหรือเจ็บป่วยจากการทำงาน</td></tr>
+    </table>
+  </div>
+  <div class="info-box">
+    <strong>💡 จำง่าย ๆ</strong>
+    ลาป่วย ≤ 3 วัน ไม่ต้องมีใบแพทย์ก็ได้ แต่ถ้าลาเกิน 3 วัน ต้องพบแพทย์และนำใบรับรองมาส่ง HR
+  </div>
+
+  <div class="section-title">ลากิจ (Personal Leave)</div>
+  <div class="grid-2">
+    <div class="stat-card">
+      <div class="stat-val">5</div>
+      <div class="stat-label">วันลากิจ/ปี — ได้รับค่าจ้างเต็ม</div>
+    </div>
+    <div class="card" style="margin:0">
+      <ul class="list">
+        <li>ใช้สำหรับธุระส่วนตัวที่จำเป็น</li>
+        <li>ต้องแจ้งผู้บังคับบัญชาล่วงหน้า</li>
+        <li>ไม่สะสมข้ามปี</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">ลาคลอด (Maternity Leave)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>รายการ</th><th>จำนวน</th></tr>
+      <tr><td>วันลาทั้งหมด</td><td class="num tag">98 วัน (รวมวันหยุด)</td></tr>
+      <tr><td>ได้รับค่าจ้างจากบริษัท</td><td class="num tag">53 วัน</td></tr>
+      <tr><td>ส่วนที่เหลือ (45 วัน)</td><td>ไม่ได้รับจากบริษัท แต่รับจากประกันสังคม (50% สูงสุด 15,000 บ./เดือน)</td></tr>
+    </table>
+  </div>
+  <div class="info-box">
+    <strong>💡 สรุปง่าย ๆ</strong>
+    ลาคลอดได้ 98 วัน (≈ 3 เดือน 1 สัปดาห์) — บริษัทจ่าย 53 วันแรก ส่วนที่เหลือรับจากประกันสังคม
+  </div>
+
+  <div class="section-title">การลาประเภทอื่น</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ประเภท</th><th>จำนวน</th><th>ค่าจ้าง</th></tr>
+      <tr><td>ลาเกณฑ์ทหาร</td><td class="num">60 วัน/ปี</td><td><span class="badge badge-green">ได้รับ</span></td></tr>
+      <tr><td>ลาอุปสมบท</td><td class="num">สูงสุด 120 วัน</td><td><span class="badge badge-teal">บางส่วน</span></td></tr>
+      <tr><td>ลาทำหมัน</td><td class="num">ตามแพทย์กำหนด</td><td><span class="badge badge-green">ได้รับ</span></td></tr>
+      <tr><td>ลาฝึกอบรม</td><td class="num">ตามหลักสูตร</td><td><span class="badge badge-green">ได้รับ</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- CH4 -->
+<div class="panel" id="panel-ch4">
+  <div class="page-title">💰 บทที่ 4 — ค่าจ้าง & ล่วงเวลา (OT)</div>
+  <div class="page-subtitle">วิธีคำนวณ OT เบี้ยกะ เบี้ยขยัน JLPT และค่าน้ำมัน</div>
+
+  <div class="grid-3">
+    <div class="stat-card"><div class="stat-val">28</div><div class="stat-label">วันจ่ายเงินเดือน ทุกเดือน</div></div>
+    <div class="stat-card"><div class="stat-val orange">240</div><div class="stat-label">ตัวหาร (เงินเดือน ÷ 240 = บ./ชม.)</div></div>
+    <div class="stat-card"><div class="stat-val green">48</div><div class="stat-label">ชม.สูงสุด/สัปดาห์ (กฎหมาย)</div></div>
+  </div>
+
+  <div class="section-title">อัตราค่าล่วงเวลา (OT)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>สถานการณ์</th><th>อัตรา</th><th>ตัวอย่าง (เงินเดือน 20,000 บ. → 83.33 บ./ชม.)</th></tr>
+      <tr><td>OT วันทำงานปกติ (หลัง 17:00)</td><td><span class="tag" style="font-size:18px">1.5×</span></td><td>83.33 × 1.5 = <strong>125 บ./ชม.</strong></td></tr>
+      <tr><td>ทำงานปกติในวันหยุด</td><td><span class="tag" style="font-size:18px">1.5×</span></td><td>83.33 × 1.5 = <strong>125 บ./ชม.</strong></td></tr>
+      <tr><td>OT ในวันหยุด</td><td><span class="orange-tag" style="font-size:18px">3×</span></td><td>83.33 × 3 = <strong>250 บ./ชม.</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="info-box">
+    <strong>💡 สูตรคำนวณ OT</strong>
+    ค่าจ้าง/ชม. = เงินเดือน ÷ 240<br>
+    ตัวอย่าง เงินเดือน 18,000 บ. → 18,000 ÷ 240 = 75 บ./ชม. → OT วันทำงาน = 75 × 1.5 = <span class="tag">112.50 บ./ชม.</span>
+  </div>
+
+  <div class="section-title">กฎการนับชั่วโมง OT</div>
+  <div class="card">
+    <ul class="list">
+      <li>ปัดเศษที่ <span class="tag">30 นาที</span> — OT 45 นาที = 0.5 ชม. | OT 29 นาที = ไม่นับ</li>
+      <li>OT 17:00–18:00 = <span class="tag">1 ชั่วโมง</span></li>
+      <li>OT 17:00–19:00 = <span class="tag">2.5 ชั่วโมง</span> (ระบบบวกพัก 30 นาทีให้อัตโนมัติถ้า OT ต่อเนื่อง > 2 ชม.)</li>
+    </ul>
+  </div>
+
+  <div class="section-title">🌙 เบี้ยกะกลางคืน (20:00 – 08:00)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ระดับพนักงาน</th><th>เบี้ยกะ</th></tr>
+      <tr><td>ระดับปฏิบัติการ (O)</td><td class="num tag">110 บาท/กะ</td></tr>
+      <tr><td>ระดับบังคับบัญชา (S) ขึ้นไป</td><td class="num tag">200 บาท/กะ</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">⭐ เบี้ยขยัน</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">รายเดือน — ไม่ขาด ไม่สาย ติดต่อกัน</div>
+      <div class="table-wrap" style="margin:0">
+        <table>
+          <tr><th>เดือนที่ (ติดต่อกัน)</th><th>โบนัส</th></tr>
+          <tr><td>เดือน 1</td><td class="num">500 บาท</td></tr>
+          <tr><td>เดือน 2</td><td class="num">600 บาท</td></tr>
+          <tr><td>เดือน 3 ขึ้นไป</td><td class="num tag">1,000 บาท</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">รายปี — ไม่ขาดงานตลอดปี</div>
+      <div class="table-wrap" style="margin:0">
+        <table>
+          <tr><th>ปีสะสม</th><th>รางวัล</th></tr>
+          <tr><td>1 ปี</td><td>ใบประกาศ</td></tr>
+          <tr><td>2 ปี</td><td class="num">1,000 บาท</td></tr>
+          <tr><td>3 ปี</td><td class="num">1,500 บาท</td></tr>
+          <tr><td>5 ปี</td><td class="num">2,500 บาท</td></tr>
+          <tr><td>7 ปี</td><td class="num">3,500 บาท</td></tr>
+          <tr><td>10 ปี</td><td class="num tag">5,000 บาท</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📜 เบี้ยภาษาญี่ปุ่น (JLPT)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ระดับ JLPT</th><th>เบี้ยรายเดือน</th></tr>
+      <tr><td>N1 (สูงสุด)</td><td class="num tag">2,000 บาท/เดือน</td></tr>
+      <tr><td>N2</td><td class="num">1,200 บาท/เดือน</td></tr>
+      <tr><td>N3</td><td class="num">800 บาท/เดือน</td></tr>
+    </table>
+  </div>
+  <div class="info-box">
+    ต้องมีผลสอบ JLPT อย่างเป็นทางการ และแจ้ง HR เพื่อรับสิทธิ์
+  </div>
+
+  <div class="section-title">🌱 ค่าสิ่งแวดล้อม & ค่าน้ำมัน</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">ค่าสิ่งแวดล้อม</div>
+      <ul class="list"><li>จำนวน: <span class="tag">400 บาท/เดือน</span></li></ul>
+    </div>
+    <div class="card">
+      <div class="card-title">⛽ ค่าน้ำมัน (อ้างอิง ปตท. ชลบุรี)</div>
+      <div class="table-wrap" style="margin:0">
+        <table>
+          <tr><th>น้ำมัน</th><th>≤ 1,000 กม.</th><th>> 1,000 กม.</th></tr>
+          <tr><td>เบนซิน</td><td class="num">7.30 บ./กม.</td><td class="num">4.90 บ./กม.</td></tr>
+          <tr><td>ดีเซล</td><td class="num">6.60 บ./กม.</td><td class="num">4.40 บ./กม.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CH5 -->
+<div class="panel" id="panel-ch5">
+  <div class="page-title">🏥 บทที่ 5 — สวัสดิการพนักงาน</div>
+  <div class="page-subtitle">ประกันสุขภาพ กองทุน PVD ประกันอุบัติเหตุ เงินช่วยเหลือ</div>
+
+  <div class="section-title">ค่ารักษาพยาบาล — ผู้ป่วยนอก (OPD)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>โรงพยาบาล</th><th>พนักงาน</th><th>ครอบครัว (คู่สมรส+บุตร)</th><th>พ่อแม่พนักงาน</th></tr>
+      <tr><td>รัฐบาล</td><td><span class="badge badge-green">100%</span></td><td><span class="badge badge-green">100%</span></td><td><span class="badge badge-green">100%</span></td></tr>
+      <tr><td>เอกชน</td><td class="num">≤ 15,000 บ./ปี</td><td class="num">50% รวมไม่เกิน 20,000 บ./ปี</td><td class="num">50% (เฉพาะ OPD)</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">ค่ารักษาพยาบาล — ผู้ป่วยใน (IPD)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>รายการ</th><th>บังคับบัญชา (S/M)</th><th>ปฏิบัติการ (O)</th></tr>
+      <tr><td>ค่าห้องพัก</td><td class="num">≤ 1,700 บาท/วัน</td><td class="num">≤ 1,300 บาท/วัน</td></tr>
+      <tr><td>ICU / ห้องผ่าตัด</td><td class="num" colspan="2">≤ 4,500 บาท/วัน</td></tr>
+      <tr><td>รพ.รัฐบาล</td><td class="num" colspan="2">100% ทุกกรณี</td></tr>
+      <tr><td>ค่าคลอดบุตร</td><td class="num" colspan="2">100%, สูงสุด 15,000 บ./ครั้ง (ไม่เกิน 2 ครั้ง)</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">ทันตกรรม</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>รายการ</th><th>รพ.รัฐบาล</th><th>รพ.เอกชน</th></tr>
+      <tr><td>ทันตกรรมทั่วไป</td><td><span class="badge badge-green">100%</span></td><td>75%</td></tr>
+      <tr><td>ครอบฟัน (Crown)</td><td>100%, ≤ 4,000 บ./ซี่</td><td>75%, ≤ 4,000 บ./ซี่</td></tr>
+      <tr><td>เดือยฟัน — Post &amp; Core</td><td>100%, ≤ 1,500 บ./ซี่</td><td>75%, ≤ 1,500 บ./ซี่</td></tr>
+      <tr><td>เดือยฟัน — Dental Pin</td><td>100%, ≤ 300 บ./ซี่</td><td>75%, ≤ 300 บ./ซี่</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">ค่ารักษาพยาบาล ครอบครัวและบิดา-มารดา (IPD)</div>
+  <div class="info-box">
+    <strong>💡 นิยาม "ครอบครัว"</strong>
+    คู่สมรสที่ถูกกฎหมาย + บุตรที่ถูกกฎหมายและยังไม่บรรลุนิติภาวะ (20 ปี) และต้องไม่เป็นข้าราชการ/พนักงานรัฐ/ลูกจ้างบุคคลอื่น
+  </div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>รายการ</th><th>พนักงาน</th><th>ครอบครัว (IPD รพ.เอกชน)</th><th>บิดา-มารดา</th></tr>
+      <tr><td>OPD รพ.รัฐ</td><td><span class="badge badge-green">100%</span></td><td><span class="badge badge-green">100%</span></td><td><span class="badge badge-green">100%</span></td></tr>
+      <tr><td>OPD รพ.เอกชน</td><td>≤ 15,000 บ./ปี</td><td>50%, รวมครอบครัว ≤ 20,000 บ./ปี</td><td>50% (เฉพาะ OPD)</td></tr>
+      <tr><td>IPD ห้องพัก (บังคับบัญชา S/M)</td><td>≤ 1,700 บ./วัน</td><td>≤ 850 บ./วัน</td><td>≤ 850 บ./วัน</td></tr>
+      <tr><td>IPD ห้องพัก (ปฏิบัติการ O)</td><td>≤ 1,300 บ./วัน</td><td>≤ 650 บ./วัน</td><td>≤ 650 บ./วัน</td></tr>
+      <tr><td>ICU</td><td>≤ 4,500 บ./วัน</td><td>≤ 2,250 บ./วัน</td><td>—</td></tr>
+      <tr><td>ค่ารักษา IPD รพ.เอกชน</td><td>≤ 200,000 บ./ปี</td><td>10,000 บ.แรก (50%) + ส่วนเกิน 75%</td><td>—</td></tr>
+      <tr><td>คลอดบุตร</td><td>100%, ≤ 15,000 บ./ครั้ง</td><td>100%, ≤ 15,000 บ./ครั้ง (≤ 2 ครั้ง)</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <div class="warn-box">
+    <strong>🚫 ค่ารักษาที่ไม่คุ้มครอง</strong>
+    <ul class="list" style="margin-top:8px">
+      <li>การจัดฟัน (Orthodontic) ฟันปลอม (Denture) รากฟันเทียม</li>
+      <li>การตัดแว่น / คอนแทคเลนส์ / ค่าตรวจวัดสายตา</li>
+      <li>ศัลยกรรมพลาสติกเพื่อความสวยงาม</li>
+      <li>พยาบาลส่วนตัว อวัยวะเทียม อุปกรณ์การแพทย์พิเศษ</li>
+      <li>เจ็บป่วยจากยาเสพติด โรคพิษสุราเรื้อรัง กามโรค</li>
+      <li>บาดเจ็บจากการพยายามฆ่าตัวตาย หรือกระทำผิดกฎหมาย</li>
+      <li>รักษาที่ รพ.เอกชนที่บริษัทไม่ได้กำหนด (ยกเว้นฉุกเฉิน)</li>
+    </ul>
+  </div>
+
+  <div class="section-title">🛡️ กองทุนสำรองเลี้ยงชีพ (PVD)</div>
+  <div class="info-box">
+    <strong>💡 PVD คืออะไร?</strong>
+    กองทุนออมเงินร่วมระหว่างพนักงานและบริษัท — รับเงินเมื่อลาออก เกษียณ หรือเสียชีวิต ยิ่งอายุงานนาน บริษัทสมทบให้มากขึ้น
+  </div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>อายุงาน</th><th>บริษัทสมทบ</th><th>ตัวอย่าง (เงินเดือน 25,000 บ.)</th></tr>
+      <tr><td>น้อยกว่า 3 ปี</td><td class="num tag">5%</td><td class="num">1,250 บ./เดือน</td></tr>
+      <tr><td>3 – 6 ปี</td><td class="num tag">6%</td><td class="num">1,500 บ./เดือน</td></tr>
+      <tr><td>6 – 10 ปี</td><td class="num tag">7%</td><td class="num">1,750 บ./เดือน</td></tr>
+      <tr><td>10 – 15 ปี</td><td class="num tag">8%</td><td class="num">2,000 บ./เดือน</td></tr>
+      <tr><td>15 ปีขึ้นไป</td><td class="num tag">10%</td><td class="num">2,500 บ./เดือน</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">🚨 ประกันอุบัติเหตุ</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>กลุ่มพนักงาน</th><th>วงเงินคุ้มครอง</th></tr>
+      <tr><td>พนักงานทั่วไป</td><td class="num tag">300,000 บาท</td></tr>
+      <tr><td>พนักงานขาย / ช่างบริการ (ขับรถปฏิบัติงาน)</td><td class="num tag">1,000,000 บาท</td></tr>
+      <tr><td>พนักงานใน 3 จังหวัดชายแดนใต้</td><td class="num tag">2,000,000 บาท</td></tr>
+      <tr><td>เสียชีวิตขณะปฏิบัติหน้าที่</td><td>+100% จากวงเงินปกติ</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">💰 เงินช่วยเหลือต่าง ๆ</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>กรณี</th><th>จำนวน</th><th>เงื่อนไข</th></tr>
+      <tr><td>เสียชีวิต (พนักงาน) — ค่าจัดการศพ</td><td class="num">4 × เงินเดือน (ขั้นต่ำ 45,000 บ.)</td><td>บริษัทรับเป็นเจ้าภาพ 1 คืน + 10,000 บ.</td></tr>
+      <tr><td>เสียชีวิต (ครอบครัวพนักงาน)</td><td class="num">10,000 บาท</td><td>บริษัทรับเป็นเจ้าภาพ 1 คืน</td></tr>
+      <tr><td>สมรส</td><td class="num">1,000 บาท</td><td>1 ครั้งในชีวิตการทำงาน</td></tr>
+      <tr><td>มีบุตร</td><td class="num">500 บาท/คน</td><td>ไม่เกิน 2 คน</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- CH6 -->
+<div class="panel" id="panel-ch6">
+  <div class="page-title">🔒 บทที่ 6 — ความปลอดภัย สุขภาพ & IT</div>
+  <div class="page-subtitle">กฎความปลอดภัย สภาพแวดล้อมการทำงาน นโยบายการใช้ IT</div>
+
+  <div class="section-title">กฎความปลอดภัยที่สำคัญ</div>
+  <div class="grid-2">
+    <div class="warn-box" style="margin:0">
+      <strong>🚫 ห้ามเด็ดขาด</strong>
+      <ul class="list" style="margin-top:8px">
+        <li>ห้ามนำอาวุธเข้าบริเวณโรงงาน</li>
+        <li>ห้ามใช้ยาเสพติดและแอลกอฮอล์</li>
+        <li>ห้ามก่อความรุนแรงในที่ทำงาน</li>
+        <li>ห้ามสูบบุหรี่นอกพื้นที่ที่กำหนด</li>
+      </ul>
+    </div>
+    <div class="info-box" style="margin:0">
+      <strong>✅ ต้องปฏิบัติเสมอ</strong>
+      <ul class="list" style="margin-top:8px">
+        <li>สวม PPE ในพื้นที่ที่กำหนด</li>
+        <li>รายงานอุบัติเหตุ/เหตุอันตรายทันที</li>
+        <li>ยอมรับการตรวจค้นเมื่อเข้า-ออกโรงงาน</li>
+        <li>ปฏิบัติตาม Emergency Shutdown Procedure</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">นโยบาย IT & อีเมล</div>
+  <div class="card">
+    <ul class="list">
+      <li>อุปกรณ์ IT ของบริษัทใช้เพื่อการทำงานเท่านั้น</li>
+      <li>ห้ามติดตั้งซอฟต์แวร์โดยไม่ได้รับอนุญาต</li>
+      <li>อีเมลและข้อมูลในระบบเป็นทรัพย์สินของบริษัท บริษัทมีสิทธิ์ตรวจสอบ</li>
+      <li>ห้ามส่งข้อมูลลับของบริษัทผ่านช่องทางส่วนตัว</li>
+    </ul>
+  </div>
+
+  <div class="section-title">การตรวจสุขภาพ</div>
+  <div class="card">
+    <ul class="list">
+      <li>ตรวจสุขภาพก่อนเริ่มงาน (พนักงานใหม่ทุกคน)</li>
+      <li>ตรวจสุขภาพประจำปีตามที่บริษัทจัด</li>
+      <li>ต้องแจ้งหากมีโรคติดต่อหรือโรคที่อาจกระทบต่อการทำงาน</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH7 -->
+<div class="panel" id="panel-ch7">
+  <div class="page-title">👤 บทที่ 7 — เรื่องส่วนบุคคล</div>
+  <div class="page-subtitle">การเข้างาน การประเมินผล และการอัปเดตข้อมูลส่วนตัว</div>
+
+  <div class="section-title">การเข้างาน (Attendance)</div>
+  <div class="card">
+    <ul class="list">
+      <li>บันทึกเวลาเข้า-ออกงานทุกวัน</li>
+      <li>ถ้าขาดงาน ต้องแจ้งผู้บังคับบัญชาก่อน 08:30 น.</li>
+      <li>ขาดงาน <span class="tag">3 วันทำการติดต่อกัน</span> โดยไม่มีเหตุผล — มีผลต่อการรับค่าชดเชย</li>
+    </ul>
+  </div>
+
+  <div class="section-title">การประเมินผลงาน</div>
+  <div class="grid-2">
+    <div class="stat-card"><div class="stat-val">2</div><div class="stat-label">ครั้ง/ปี (ทุก 6 เดือน)</div></div>
+    <div class="card" style="margin:0">
+      <div class="card-title">ผลประเมินใช้สำหรับ</div>
+      <ul class="list">
+        <li>การปรับขึ้นเงินเดือน</li>
+        <li>การเลื่อนตำแหน่ง</li>
+        <li>การพิจารณาโบนัสประจำปี</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">การอัปเดตข้อมูลส่วนตัว</div>
+  <div class="info-box">
+    <strong>📋 ต้องแจ้ง HR ทันทีเมื่อมีการเปลี่ยนแปลง</strong>
+    <ul class="list" style="margin-top:8px">
+      <li>ที่อยู่ / เบอร์โทรศัพท์</li>
+      <li>สถานะสมรส / จำนวนบุตร</li>
+      <li>บัญชีธนาคาร (รับเงินเดือน)</li>
+      <li>บุคคลที่ต้องแจ้งในกรณีฉุกเฉิน</li>
+      <li>ผลสอบ JLPT (เพื่อรับเบี้ยภาษา)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CH8 -->
+<div class="panel" id="panel-ch8">
+  <div class="page-title">✈️ บทที่ 8 — ค่าใช้จ่ายในการเดินทาง</div>
+  <div class="page-subtitle">เบี้ยเลี้ยง ที่พัก และค่าใช้จ่ายทั้งในและต่างประเทศ</div>
+
+  <div class="section-title">เดินทางในประเทศ — เบี้ยเลี้ยงอาหาร</div>
+  <div class="info-box">
+    <strong>💡 เกณฑ์เวลา (เดินทางออก / กลับถึง)</strong><br>
+    ออกก่อน 07:30 → ได้ค่าเช้า | ออกก่อน 12:00 → ได้ค่ากลางวัน | ออกก่อน 18:30 → ได้ค่าเย็น<br>
+    กลับหลัง 07:30 → ได้ค่าเช้า | กลับหลัง 12:00 → ได้ค่ากลางวัน | กลับหลัง 18:30 → ได้ค่าเย็น
+  </div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>มื้ออาหาร</th><th>อัตรา</th><th>เงื่อนไขเวลา</th></tr>
+      <tr><td>อาหารเช้า</td><td class="num">60 บาท</td><td>ออกก่อน 07:30 หรือ กลับหลัง 07:30</td></tr>
+      <tr><td>อาหารกลางวัน</td><td class="num">90 บาท</td><td>ออกก่อน 12:00 หรือ กลับหลัง 12:00</td></tr>
+      <tr><td>อาหารเย็น</td><td class="num">110 บาท</td><td>ออกก่อน 18:30 หรือ กลับหลัง 18:30</td></tr>
+      <tr><td>ค่าใช้จ่ายอื่น ๆ</td><td class="num">40 บาท</td><td>ค่าพาหนะ เครื่องดื่ม ฯลฯ</td></tr>
+      <tr><td><strong>รวมสูงสุด/วัน</strong></td><td class="num tag">300 บาท</td><td>เดินทางทั้งวัน (ทุกระดับ)</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">เดินทางในประเทศ — ค่าที่พัก</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ระดับพนักงาน</th><th>กลุ่ม 1 (จ.ใหญ่)</th><th>กลุ่ม 2 (ต่างจังหวัดทั่วไป)</th></tr>
+      <tr><td>ผู้บริหาร (M)</td><td colspan="2"><span class="badge badge-green">เบิกได้จริง 100%</span></td></tr>
+      <tr><td>บังคับบัญชา (S) / ปฏิบัติการ (O)</td><td class="num">≤ 1,300 บาท/คืน</td><td class="num">≤ 900 บาท/คืน</td></tr>
+    </table>
+  </div>
+  <div class="info-box" style="margin-top:8px">
+    <strong>⚠️ ไม่จ่ายค่าที่พัก</strong> ถ้าปลายทางอยู่ในจังหวัด ชลบุรี / ฉะเชิงเทรา / สมุทรปราการ (เขตที่ตั้งบริษัท)
+  </div>
+
+  <details style="margin-top:12px">
+    <summary style="cursor:pointer;color:var(--teal);font-weight:600;padding:8px 0">📋 รายชื่อจังหวัด กลุ่ม 1 และ กลุ่ม 2 (คลิกเพื่อดู)</summary>
+    <div style="padding:12px 0">
+      <div style="color:var(--orange);font-weight:600;margin-bottom:6px">กลุ่ม 1 — ≤ 1,300 บ./คืน</div>
+      <div style="color:var(--text2);font-size:0.85em;line-height:1.8">
+        กรุงเทพมหานคร · นนทบุรี · สมุทรปราการ · ชลบุรี · ประจวบคีรีขันธ์ · เชียงใหม่ · เชียงราย · สุโขทัย · แม่ฮ่องสอน · นครราชสีมา · อุบลราชธานี · อุดรธานี · หนองคาย · บึงกาฬ · ขอนแก่น · ตราด · สุราษฎร์ธานี · ภูเก็ต · ตรัง · กระบี่
+      </div>
+      <div style="color:var(--orange);font-weight:600;margin:12px 0 6px">กลุ่ม 2 — ≤ 900 บ./คืน</div>
+      <div style="color:var(--text2);font-size:0.85em;line-height:1.8">
+        ลพบุรี · สระบุรี · ปทุมธานี · สกลนคร · ลำปาง · ปัตตานี · สระแก้ว · ยะลา · หนองบัวลำภู · ระยอง · อุตรดิตถ์ · ราชบุรี · อุทัยธานี · กาญจนบุรี · กาฬสินธุ์ · ชุมพร · นราธิวาส · ระนอง · น่าน · นครศรีธรรมราช · ปราจีนบุรี · นครสวรรค์ · แพร่ · ตาก · จันทบุรี · เพชรบูรณ์ · สุรินทร์ · ฉะเชิงเทรา · นครพนม · พิษณุโลก · มุกดาหาร · พังงา · สงขลา · อยุธยา · มหาสารคาม · พะเยา · อำนาจเจริญ · อ่างทอง · กำแพงเพชร · พิจิตร · ศรีสะเกษ · บุรีรัมย์ · เลย · ร้อยเอ็ด · สิงห์บุรี · ชัยนาท · นครนายก · สมุทรสงคราม · สุพรรณบุรี · ชัยภูมิ · นครปฐม · สตูล · ยโสธร · ลำพูน · พัทลุง · สมุทรสาคร · เพชรบุรี
+      </div>
+    </div>
+  </details>
+
+  <div class="section-title">ค่าน้ำมันรถส่วนตัว</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>น้ำมัน</th><th>≤ 1,000 กม. แรก</th><th>1,001 กม. ขึ้นไป</th></tr>
+      <tr><td>เบนซิน</td><td class="num">7.30 บาท/กม.</td><td class="num">4.90 บาท/กม.</td></tr>
+      <tr><td>ดีเซล</td><td class="num">6.60 บาท/กม.</td><td class="num">4.40 บาท/กม.</td></tr>
+    </table>
+  </div>
+  <div class="info-box">
+    อัตราค่าน้ำมันอ้างอิงราคา ปตท. สาขาชลบุรี อัปเดตทุกวันที่ 1 มกราคม
+  </div>
+
+  <div class="section-title">เดินทางต่างประเทศ — เบี้ยเลี้ยงรายวัน (แยกตามระดับ)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ระดับ</th><th>โซนสูง (USD)</th><th>โซนปกติ (USD)</th><th>โซนเฉพาะ (USD)</th><th>ญี่ปุ่น (JPY)</th></tr>
+      <tr><td><span class="tag">M3 ขึ้นไป</span></td><td class="num">130</td><td class="num">120</td><td class="num">80</td><td class="num">11,000 ¥</td></tr>
+      <tr><td><span class="tag">M1–M2</span></td><td class="num">120</td><td class="num">110</td><td class="num">70</td><td class="num">10,000 ¥</td></tr>
+      <tr><td><span class="tag">S (บังคับบัญชา)</span></td><td class="num">95</td><td class="num">85</td><td class="num">55</td><td class="num">8,500 ¥</td></tr>
+      <tr><td><span class="tag">O (ปฏิบัติการ)</span></td><td class="num">85</td><td class="num">75</td><td class="num">50</td><td class="num">7,600 ¥</td></tr>
+    </table>
+  </div>
+
+  <details style="margin-top:10px">
+    <summary style="cursor:pointer;color:var(--teal);font-weight:600;padding:8px 0">🌍 นิยามโซน (คลิกเพื่อดู)</summary>
+    <div style="padding:10px 0;color:var(--text2);font-size:0.85em;line-height:1.9">
+      <strong style="color:var(--orange)">โซนสูง:</strong> UK · ฝรั่งเศส · สวิตเซอร์แลนด์ · นอร์เวย์ · สวีเดน · เดนมาร์ก · ฟินแลนด์ · เยอรมนี · เนเธอร์แลนด์ · เบลเยียม · ลักเซมเบิร์ก · อิตาลี · ออสเตรีย · ฮ่องกง<br>
+      <strong style="color:var(--orange)">โซนเฉพาะ:</strong> ลาว · กัมพูชา · เมียนมา · เวียดนาม<br>
+      <strong style="color:var(--orange)">โซนปกติ:</strong> ประเทศอื่น ๆ ทั้งหมด<br>
+      <strong style="color:var(--orange)">ญี่ปุ่น:</strong> คิดแยกเป็น JPY ต่างหาก
+    </div>
+  </details>
+
+  <div class="section-title" style="margin-top:20px">เดินทางต่างประเทศ — อัตราลดเบี้ยเลี้ยงกรณีอยู่นาน</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>จำนวนวัน</th><th>% ของเบี้ยเลี้ยงปกติ</th></tr>
+      <tr><td>วันที่ 1 – 14</td><td class="num"><span class="badge badge-green">100%</span></td></tr>
+      <tr><td>วันที่ 15 – 90</td><td class="num"><span class="badge" style="background:#2a4d2a">90%</span></td></tr>
+      <tr><td>วันที่ 91 ขึ้นไป</td><td class="num"><span class="badge" style="background:#3d3020">80%</span></td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">เดินทางต่างประเทศ — ค่าที่พักสูงสุด/คืน</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ระดับ</th><th>โซนปกติ / เฉพาะ</th><th>โซนสูง</th><th>ญี่ปุ่น</th></tr>
+      <tr><td><span class="tag">M3 ขึ้นไป</span></td><td class="num">≤ 200 USD</td><td class="num">≤ 260 USD</td><td class="num">≤ 30,000 ¥</td></tr>
+      <tr><td><span class="tag">M1–M2</span></td><td class="num">≤ 175 USD</td><td class="num">≤ 230 USD</td><td class="num">≤ 26,500 ¥</td></tr>
+      <tr><td><span class="tag">S / O</span></td><td colspan="3">บริษัทจัดจองโรงแรมระดับกลางให้</td></tr>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">✈️ ตั๋วเครื่องบิน</div>
+      <ul class="list">
+        <li>M3 ขึ้นไป: <span class="tag">Business / First Class</span></li>
+        <li>M1–M2: Economy / ราคาลด</li>
+        <li>S / O: Economy / ราคาลด</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">👔 ค่าเครื่องแต่งกายต่างประเทศ</div>
+      <ul class="list">
+        <li>ระดับบริหาร: <span class="tag">10,000 บาท</span></li>
+        <li>บังคับบัญชา / ปฏิบัติการ: 8,000 บาท</li>
+        <li>ต่ออายุทุก <span class="tag">3 ปี</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CH9 -->
+<div class="panel" id="panel-ch9">
+  <div class="page-title">📜 บทที่ 9 — จรรยาบรรณ & วินัย</div>
+  <div class="page-subtitle">หลักจริยธรรม ผลประโยชน์ทับซ้อน ข้อห้าม และบทลงโทษ</div>
+
+  <div class="section-title">จรรยาบรรณ 11 ข้อ ของ KPMT / Kubota Group</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>#</th><th>หลักการ</th></tr>
+      <tr><td>1</td><td>ทำงานเพื่อพัฒนาสังคม ด้วยสินค้าและเทคโนโลยีที่มีคุณภาพ</td></tr>
+      <tr><td>2</td><td>ดำเนินกิจการภายใต้กฎหมายและหลักศีลธรรม</td></tr>
+      <tr><td>3</td><td>เคารพในสิทธิมนุษยชน ไม่เลือกปฏิบัติ</td></tr>
+      <tr><td>4</td><td>รักษาสิ่งแวดล้อมและพัฒนาอย่างยั่งยืน</td></tr>
+      <tr><td>5</td><td>มุ่งเน้นความพึงพอใจของลูกค้าเป็นสำคัญ</td></tr>
+      <tr><td>6</td><td>ซื่อสัตย์สุจริตต่อบริษัท ลูกค้า และเพื่อนร่วมงาน</td></tr>
+      <tr><td>7</td><td>ทำงานเป็นทีม เคารพความหลากหลาย</td></tr>
+      <tr><td>8</td><td>มีความคิดสร้างสรรค์ กล้าเผชิญกับสิ่งใหม่</td></tr>
+      <tr><td>9</td><td>ประหยัดและใช้ทรัพยากรบริษัทอย่างคุ้มค่า</td></tr>
+      <tr><td>10</td><td>พัฒนาตนเองและมีส่วนร่วมในการพัฒนาองค์กร</td></tr>
+      <tr><td>11</td><td>สื่อสารอย่างโปร่งใส เปิดรับความคิดเห็น</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">ผลประโยชน์ทับซ้อน & ข้อห้าม</div>
+  <div class="warn-box">
+    <strong>⚠️ สิ่งที่ต้องระวัง</strong>
+    <ul class="list" style="margin-top:8px">
+      <li>ห้ามรับของขวัญ เงิน หรือสิ่งของที่มีผลต่อการตัดสินใจ</li>
+      <li>ห้ามทำงานนอก/ธุรกิจส่วนตัวโดยไม่รับอนุมัติเป็นลายลักษณ์อักษร</li>
+      <li>ถ้ามีญาติหรือคนรักในสายบังคับบัญชาตรง → ต้องแจ้ง HR และแก้ไขภายใน 30 วัน</li>
+      <li>ห้ามเปิดเผยข้อมูลลับ เทคโนโลยี หรือข้อมูลธุรกิจของบริษัท</li>
+      <li>ห้ามนำทรัพย์สินบริษัทไปใช้ส่วนตัวโดยไม่ได้รับอนุญาต</li>
+      <li>ห้ามให้กู้ยืมเงินในที่ทำงาน เพื่อหาดอกเบี้ยส่วนตัว</li>
+    </ul>
+  </div>
+
+  <div class="section-title">บทลงโทษ (Disciplinary Actions)</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>ระดับ</th><th>บทลงโทษ</th><th>หมายเหตุ</th></tr>
+      <tr><td>ก.</td><td>เตือนด้วยวาจา</td><td>ความผิดเล็กน้อย</td></tr>
+      <tr><td>ข.</td><td>เตือนเป็นลายลักษณ์อักษร</td><td>มีผลไม่เกิน 1 ปีนับจากวันที่ทำผิด</td></tr>
+      <tr><td>ค.</td><td>พักงาน (สูงสุด 7 วัน)</td><td>พักระหว่างสอบสวน ไม่นับเป็นโทษ</td></tr>
+      <tr><td>ง.</td><td>ปลดออก (มีค่าชดเชย)</td><td>ความผิดร้ายแรงบางกรณี</td></tr>
+      <tr><td>จ.</td><td><span class="badge badge-red">เลิกจ้าง (ไม่มีค่าชดเชย)</span></td><td>ความผิดร้ายแรงขั้นสูงสุด</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">ความผิดร้ายแรง — เลิกจ้างได้ทันที ไม่ต้องจ่ายชดเชย</div>
+  <div class="warn-box">
+    <strong>🚨 กรณีเหล่านี้ถือว่าร้ายแรงมาก</strong>
+    <ul class="list" style="margin-top:8px">
+      <li>ทุจริต ฉ้อโกง หรือกระทำความผิดอาญาต่อบริษัท</li>
+      <li>จงใจทำให้บริษัทเสียหายอย่างร้ายแรง</li>
+      <li>ขาดงาน 3 วันทำการติดต่อกัน โดยไม่มีเหตุผล</li>
+      <li>ไม่ซื่อสัตย์ต่องานและธุรกิจของบริษัท</li>
+      <li>นำอาวุธเข้าสถานที่ทำงาน</li>
+      <li>ทำร้ายหรือพยายามทำร้ายผู้อื่นในที่ทำงาน</li>
+      <li>เปิดเผยข้อมูลลับของบริษัท</li>
+      <li>ปลอมเอกสาร พูดโกหก หรือให้หลักฐานเท็จ</li>
+      <li>ประกอบธุรกิจแข่งขันกับบริษัทหรือขัดขวางผลกำไร</li>
+    </ul>
+  </div>
+
+  <div class="section-title">การร้องทุกข์ (Open Door Policy)</div>
+  <div class="info-box">
+    <strong>💡 สิทธิ์พนักงาน</strong>
+    ปรึกษาปัญหาการทำงานกับผู้บังคับบัญชา ฝ่าย HR หรือผู้บริหารได้ตลอดเวลา บริษัทรับประกัน <span class="tag">ไม่มีการแก้แค้น</span> ผู้ร้องเรียนโดยสุจริต
+  </div>
+  <div class="card">
+    <div class="card-title">ขั้นตอนการร้องเรียน</div>
+    <ol class="list" style="list-style:decimal">
+      <li>ปรึกษาผู้บังคับบัญชาโดยตรงก่อน (ไม่เป็นทางการ)</li>
+      <li>ยื่นคำร้องเป็นลายลักษณ์อักษรถึงผู้บังคับบัญชาที่สูงกว่า (สำเนา HR)</li>
+      <li>HR สอบสวนและแจ้งผลลัพธ์</li>
+      <li>อุทธรณ์ต่อคณะกรรมการฝ่ายบุคคล (ถ้าไม่พึงพอใจ)</li>
+    </ol>
+  </div>
+
+  <div class="section-title" style="margin-top:24px">นโยบายแจ้งเบาะแส (Whistleblower Policy) — 9-13</div>
+  <div class="info-box">
+    <strong>🔍 วัตถุประสงค์</strong>
+    ส่งเสริมให้พนักงานรายงานการกระทำผิดกฎหมาย การฉ้อโกง การทุจริต หรือพฤติกรรมที่ไม่เหมาะสม โดยมีการคุ้มครองผู้แจ้งเบาะแสอย่างจริงจัง
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">✅ สิทธิ์ของผู้แจ้งเบาะแส</div>
+      <ul class="list">
+        <li>แจ้งได้โดย <span class="tag">ไม่ต้องเปิดเผยชื่อ</span> (แต่แนะนำให้ระบุเพื่อความครบถ้วน)</li>
+        <li>บริษัทปกป้องข้อมูลของผู้แจ้งอย่างเข้มงวด</li>
+        <li>ไม่มีการตอบโต้ แก้แค้น หรือกลั่นแกล้งใด ๆ</li>
+        <li>ได้รับการปฏิบัติอย่างยุติธรรม ไม่กระทบสถานะงาน</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 ขั้นตอนการแจ้งเบาะแส</div>
+      <ol class="list" style="list-style:decimal">
+        <li>แจ้งต่อ HR โดยตรง หรือผ่านช่องทางที่บริษัทกำหนด</li>
+        <li>บริษัทรับเรื่องและสอบสวนอย่างเป็นความลับ</li>
+        <li>แจ้งผลการสอบสวนให้ผู้แจ้งทราบ (ถ้าเปิดเผยตัว)</li>
+        <li>ดำเนินการลงโทษผู้กระทำผิดตามระเบียบ</li>
+      </ol>
+    </div>
+  </div>
+  <div class="warn-box">
+    <strong>⚠️ ข้อสำคัญ</strong>
+    การแจ้งเบาะแสด้วยเจตนาบริสุทธิ์ <span class="tag">ถือเป็นการกระทำที่บริษัทให้การสนับสนุน</span> แต่การแจ้งเท็จหรือใส่ร้ายผู้อื่นโดยเจตนา อาจถือเป็นความผิดทางวินัย
+  </div>
+</div>
+
+<!-- CH10 -->
+<div class="panel" id="panel-ch10">
+  <div class="page-title">🤝 บทที่ 10 — สิ้นสุดสัญญา & ค่าชดเชย</div>
+  <div class="page-subtitle">เกษียณ ลาออก เลิกจ้าง และอัตราค่าชดเชยตามกฎหมายแรงงาน</div>
+
+  <div class="section-title">วิธีสิ้นสุดการจ้างงาน</div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">👋 ลาออก</div>
+      <ul class="list">
+        <li>แจ้งล่วงหน้า <span class="tag">30 วัน</span> เป็นลายลักษณ์อักษร</li>
+        <li>ไม่มีค่าชดเชย (กรณีลาออกเอง)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🎉 เกษียณ</div>
+      <ul class="list">
+        <li>อายุ <span class="tag">55 ปี</span></li>
+        <li>ต่อได้ปีละ 1 ปี สูงสุดถึง 60 ปี</li>
+        <li>รับค่าชดเชยตามกฎหมาย</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">⚠️ เลิกจ้าง</div>
+      <ul class="list">
+        <li>ต้องได้รับค่าชดเชยตามตาราง</li>
+        <li>ยกเว้นกรณีผิดร้ายแรง</li>
+        <li>บริษัทแจ้งล่วงหน้า 30 วัน หรือจ่ายแทน</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">ตารางค่าชดเชย (ตามกฎหมายแรงงาน)</div>
+  <div class="info-box">
+    <strong>💡 ค่าชดเชย = ค่าจ้างอัตราสุดท้าย × จำนวนวัน</strong>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>อายุงาน</th><th>ค่าชดเชย (วัน)</th><th>ตัวอย่าง (เงินเดือน 20,000 บ.)</th></tr>
+      <tr><td>120 วัน – ไม่ครบ 1 ปี</td><td class="num">30 วัน</td><td class="num">20,000 บาท</td></tr>
+      <tr><td>1 ปี – ไม่ครบ 3 ปี</td><td class="num">90 วัน</td><td class="num">60,000 บาท</td></tr>
+      <tr><td>3 ปี – ไม่ครบ 6 ปี</td><td class="num">180 วัน</td><td class="num">120,000 บาท</td></tr>
+      <tr><td>6 ปี – ไม่ครบ 10 ปี</td><td class="num">240 วัน</td><td class="num">160,000 บาท</td></tr>
+      <tr><td>10 ปี – ไม่ครบ 20 ปี</td><td class="num">300 วัน</td><td class="num">200,000 บาท</td></tr>
+      <tr><td>20 ปีขึ้นไป</td><td class="num tag">400 วัน</td><td class="num">266,667 บาท</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">ค่าชดเชยพิเศษ (กรณีปรับโครงสร้าง/ย้ายงาน)</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">นำเครื่องจักรมาแทนคน / ปรับโครงสร้าง</div>
+      <ul class="list">
+        <li>ต้องแจ้งล่วงหน้า <span class="tag">≥ 60 วัน</span></li>
+        <li>แจ้งน้อยกว่า 60 วัน → จ่ายเพิ่มเท่ากับค่าจ้าง 60 วัน</li>
+        <li>อายุงาน > 6 ปี → ค่าชดเชยพิเศษ 15 วัน/ปี (สูงสุด 360 วัน)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">ย้ายสถานที่ทำงาน</div>
+      <ul class="list">
+        <li>ต้องแจ้งล่วงหน้า <span class="tag">≥ 30 วัน</span></li>
+        <li>พนักงานไม่ต้องการย้าย → ลาออกได้ภายใน 30 วัน และรับค่าชดเชยเต็มอัตรา</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">กรณีที่ไม่ได้รับค่าชดเชย</div>
+  <div class="warn-box">
+    <strong>⚠️ ไม่ได้รับค่าชดเชยเมื่อ</strong>
+    <ul class="list" style="margin-top:8px">
+      <li>ทุจริตหรือกระทำความผิดอาญาโดยเจตนา</li>
+      <li>จงใจทำให้บริษัทเสียหาย หรือประมาทเลินเล่ออย่างร้ายแรง</li>
+      <li>ฝ่าฝืนข้อบังคับหลังได้รับคำเตือนเป็นลายลักษณ์อักษรแล้ว (คำเตือนมีอายุ 1 ปี)</li>
+      <li>ขาดงาน 3 วันทำการติดต่อกัน โดยไม่มีเหตุผลสมควร</li>
+      <li>ถูกจำคุกตามคำพิพากษาถึงที่สุด (ยกเว้นความผิดโดยประมาทหรือลหุโทษ)</li>
+    </ul>
+  </div>
+
+  <div class="footer">จีรศักดิ์ พิมพ์ไกร / Jeerasak Pimkrai · วิศวกร | Production Engineering (PE) · KPMT</div>
+</div>
+
+<!-- APPENDIX: KUBOTA GROUP POLICY -->
+<div class="panel" id="panel-kubota">
+  <div class="page-title">🌏 ภาคผนวก — นโยบาย/หลักการ/แนวปฏิบัติ กลุ่มบริษัทคูโบต้า</div>
+  <div class="page-subtitle">เอกสารแนบของ HR Handbook — มีผลบังคับใช้ 1 พฤศจิกายน 2554</div>
+
+  <div class="section-title">นโยบายของกลุ่มบริษัทคูโบต้า</div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">🌱 พัฒนาสังคม</div>
+      <p style="color:var(--text2);font-size:0.9em">ทำงานเพื่อพัฒนาสังคม โดยใช้ศักยภาพและความรู้ความเชี่ยวชาญทั้งหมดในการนำเสนอสินค้าและเทคโนโลยีที่ดีต่อสังคม</p>
+    </div>
+    <div class="card">
+      <div class="card-title">🏆 มุ่งสู่ความเป็นเลิศ</div>
+      <p style="color:var(--text2);font-size:0.9em">ทำวันนี้และวันต่อๆ ไปให้ดีที่สุด ด้วยจุดมุ่งหมายในการนำความมั่งคั่งต่อสังคม และนำความสุขให้แก่พนักงาน</p>
+    </div>
+    <div class="card">
+      <div class="card-title">💡 กล้าคิดกล้าทำ</div>
+      <p style="color:var(--text2);font-size:0.9em">ใช้ความคิดสร้างสรรค์และความกล้าหาญในการเผชิญกับสิ่งที่ไม่รู้</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:20px">หลักการของผู้บริหาร</div>
+  <div class="info-box">
+    กลุ่มบริษัทคูโบต้าอุทิศตนเพื่อการพัฒนาสังคมและการรักษาสิ่งแวดล้อมผ่านทางสินค้า เทคโนโลยี และการให้บริการของบริษัท อันเป็นรากฐานที่สำคัญของสังคม และของวิถีชีวิตที่มีความสะดวกสบาย
+  </div>
+
+  <div class="section-title" style="margin-top:20px">ระเบียบการปฏิบัติ 7 หมวด</div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>#</th><th>หมวด</th><th>หลักการสำคัญ</th></tr>
+      <tr>
+        <td>1</td>
+        <td><strong>เอาชนะความพึงพอใจของลูกค้า</strong></td>
+        <td>เข้าใจความต้องการลูกค้าอย่างถูกต้อง · คุณภาพและความปลอดภัยสูงสุด · ตอบสนองข้อร้องเรียนทันที · โฆษณาตรงไปตรงมา ไม่ทำให้เข้าใจผิด</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>ดำเนินกิจการภายใต้กฎหมายและศีลธรรม</strong></td>
+        <td>ปฏิบัติตามกฎหมายทุกประเภทอย่างเคร่งครัด · ต่อต้านระบบผูกขาด · ความสัมพันธ์ที่โปร่งใสกับคู่ค้า · ไม่ขัดแย้งผลประโยชน์องค์กร · รักษาทรัพย์สินและทรัพย์สินทางปัญญา · ปกป้องข้อมูลลับ</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>เคารพในสิทธิมนุษยชน</strong></td>
+        <td>ไม่แบ่งเชื้อชาติ อายุ เพศ · ห้ามคุกคามทางเพศหรือทารุณกรรม · ปกป้องข้อมูลส่วนบุคคลของลูกค้าและพนักงาน</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>สร้างสภาพแวดล้อมการทำงานที่ปลอดภัย</strong></td>
+        <td>ควบคุมดูแลความปลอดภัย สุขอนามัย และสุขภาพ · ปรับปรุงเครื่องจักรและบรรยากาศในการทำงาน</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>รักษาธรรมชาติและสิ่งแวดล้อม</strong></td>
+        <td>ป้องกันมลภาวะในทุกระดับ · พัฒนาสินค้าและเทคโนโลยีที่เป็นมิตรกับสิ่งแวดล้อม · ร่วมงานกับชุมชนรอบโรงงาน</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong>ยอมรับการผสมผสานสังคมท้องถิ่นและสากล</strong></td>
+        <td>เคารพกฎหมายและวัฒนธรรมทุกประเทศ · ปฏิบัติตามกฎการค้าระหว่างประเทศ · ต่อต้านการต่อต้านสังคม · ไม่ให้สินบนหรือของขวัญผิดกฎหมาย · ไม่รับของกำนัลเกินธรรมเนียม</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><strong>ความโปร่งใสและน่าเชื่อถือ</strong></td>
+        <td>เปิดเผยข้อมูลองค์กรที่เหมาะสม · ระบบบัญชีถูกต้อง · เน้นตรวจสอบภายใน · ห้ามใช้ข้อมูลภายใน (Insider Trading)</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section-title" style="margin-top:20px">ข้อพึงปฏิบัติสำคัญ — ทรัพย์สินทางปัญญา & ข้อมูล</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">🔐 ทรัพย์สินทางปัญญา</div>
+      <ul class="list">
+        <li>เคารพในลิขสิทธิ์ การออกแบบ เครื่องหมายการค้าของผู้อื่น</li>
+        <li>ไม่ใช้โดยไม่ได้รับอนุญาต</li>
+        <li>ดูแลรักษาสิทธิ์ขององค์กรเอง ไม่ยินยอมให้ผู้อื่นละเมิด</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">💾 ข้อมูลองค์กร & ดิจิทัล</div>
+      <ul class="list">
+        <li>จัดการข้อมูลลับตามกฎหมายและระเบียบองค์กร</li>
+        <li>แม้พ้นสภาพพนักงานแล้ว ยังห้ามเปิดเผยข้อมูลลับ</li>
+        <li>มีมาตรการป้องกันการรั่วไหลของข้อมูลดิจิทัล</li>
+        <li>ห้ามซื้อขายหุ้นโดยใช้ข้อมูลภายใน (Insider Trading)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:20px">แบบฟอร์มแสดงความยินยอมของพนักงาน</div>
+  <div class="info-box">
+    <strong>📝 พนักงานทุกคนรับทราบว่า</strong>
+    <ul class="list" style="margin-top:8px">
+      <li>คู่มือนี้จัดทำขึ้นเพื่อข้อมูลเท่านั้น <span class="tag">ไม่ถือเป็นสัญญาผูกพัน</span></li>
+      <li>นโยบายอาจมีการเปลี่ยนแปลงได้ตามที่บริษัทเห็นควร ภายใต้หลักกฎหมายแรงงาน</li>
+      <li>ข้อสงสัยใดๆ ที่ไม่ระบุในคู่มือ ให้ปรึกษากรรมการผู้จัดการ ซึ่งถือว่าเป็นที่สุด</li>
+      <li>พนักงานมีหน้าที่อ่านและปฏิบัติตามนโยบายในคู่มือนี้ รวมถึงการเปลี่ยนแปลงใดๆ</li>
+    </ul>
+  </div>
+
+  <div class="footer">จีรศักดิ์ พิมพ์ไกร / Jeerasak Pimkrai · วิศวกร | Production Engineering (PE) · KPMT</div>
+</div>
+
+<!-- SEARCH -->
+<div id="searchResultsContainer" style="display:none">
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+</div><!-- end main -->
+
+<!-- Mobile Top Bar -->
+<div class="mob-topbar">
+  <div class="mob-topbar-logo">KPMT HR Guide <small>คู่มือพนักงาน</small></div>
+  <a class="mob-hdr-btn" href="HR ระเบียบข้อบังคับ KPMT.pdf" target="_blank">📄 PDF</a>
+  <button class="mob-hdr-btn" onclick="openMobMenu()">☰ เมนู</button>
+</div>
+
+<!-- Full-screen Chapter Menu -->
+<div class="mob-menu-overlay" id="mobMenu">
+  <div class="mob-menu-head">
+    <div class="mob-menu-head-title">เลือกบท</div>
+    <button class="mob-menu-close" onclick="closeMobMenu()">✕</button>
+  </div>
+  <div class="mob-menu-section">ภาพรวม</div>
+  <button class="mob-menu-item" onclick="goPage('home')"><span class="mob-menu-icon">🏠</span><span class="mob-menu-label">หน้าหลัก<span class="mob-menu-sub">ภาพรวมทั้งหมด</span></span></button>
+  <button class="mob-menu-item" onclick="goPage('qref')"><span class="mob-menu-icon">⚡</span><span class="mob-menu-label">Quick Reference<span class="mob-menu-sub">ตัวเลขสำคัญ</span></span></button>
+
+  <div class="mob-menu-section">บทที่ 1–5</div>
+  <button class="mob-menu-item" onclick="goPage('ch1')"><span class="mob-menu-icon">📋</span><span class="mob-menu-label">บทที่ 1 — การจ้างงาน<span class="mob-menu-sub">ทดลองงาน สัญญา เริ่มงาน</span></span></button>
+  <button class="mob-menu-item" onclick="goPage('ch2')"><span class="mob-menu-icon">🕐</span><span class="mob-menu-label">บทที่ 2 — เวลาทำงาน<span class="mob-menu-sub">วันหยุด กะ ชั่วโมงทำงาน</span></span></button>
+  <button class="mob-menu-item" onclick="goPage('ch3')"><span class="mob-menu-icon">📅</span><span class="mob-menu-label">บทที่ 3 — การลา<span class="mob-menu-sub">พักร้อน ป่วย คลอด ทหาร บวช</span></span></button>
+  <button class="mob-menu-item" onclick="goPage('ch4')"><span class="mob-menu-icon">💰</span><span class="mob-menu-label">บทที่ 4 — ค่าจ้าง & OT<span class="mob-menu-sub">เงินเดือน OT เบี้ยกะ โบนัส</span></span></button>
+  <button class="mob-menu-item" onclick="goPage('ch5')"><span class="mob-menu-icon">🏥</span><span class="mob-menu-label">บทที่ 5 — สวัสดิการ<span class="mob-menu-sub">ประกัน ทันตกรรม PVD</span></span></button>
+
+  <div class="mob-menu-section">บทที่ 6–10</div>
+  <button class="mob-menu-item" onclick="goPage('ch6')"><span class="mob-menu-icon">🔒</span><span class="mob-menu-label">บทที่ 6 — ความปลอดภัย & IT<span class="mob-menu-sub">PPE ยาเสพติด อีเมล</span></span></button>
+  <button class="mob-menu-item" onclick="goPage('ch7')"><span class="mob-menu-icon">👤</span><span class="mob-menu-label">บทที่ 7 — เรื่องส่วนตัว<span class="mob-menu-sub">ประเมินผล ข้อมูลส่วนตัว</span></span></button>
+  <button class="mob-menu-item" onclick="goPage('ch8')"><span class="mob-menu-icon">✈️</span><span class="mob-menu-label">บทที่ 8 — ค่าเดินทาง<span class="mob-menu-sub">เบี้ยเลี้ยง ที่พัก ต่างประเทศ</span></span></button>
+  <button class="mob-menu-item" onclick="goPage('ch9')"><span class="mob-menu-icon">📜</span><span class="mob-menu-label">บทที่ 9 — จรรยาบรรณ & วินัย<span class="mob-menu-sub">โทษ Open Door Whistleblower</span></span></button>
+  <button class="mob-menu-item" onclick="goPage('ch10')"><span class="mob-menu-icon">🤝</span><span class="mob-menu-label">บทที่ 10 — ค่าชดเชย<span class="mob-menu-sub">เลิกจ้าง เกษียณ ลาออก</span></span></button>
+
+  <div class="mob-menu-section">ภาคผนวก</div>
+  <button class="mob-menu-item" onclick="goPage('kubota')"><span class="mob-menu-icon">🌏</span><span class="mob-menu-label">นโยบาย Kubota Group<span class="mob-menu-sub">หลักการ แนวปฏิบัติ จรรยาบรรณ</span></span></button>
+</div>
+
+<!-- Mobile Bottom Nav -->
+<div class="mobile-bar">
+  <button class="mob-btn active" id="mb-home" onclick="goPage('home');setMobActive(this)">
+    <span class="mob-icon">🏠</span>หน้าหลัก
+  </button>
+  <button class="mob-btn" id="mb-ch3" onclick="goPage('ch3');setMobActive(this)">
+    <span class="mob-icon">📅</span>การลา
+  </button>
+  <button class="mob-btn" id="mb-ch5" onclick="goPage('ch5');setMobActive(this)">
+    <span class="mob-icon">🏥</span>สวัสดิการ
+  </button>
+  <button class="mob-btn" id="mb-ch8" onclick="goPage('ch8');setMobActive(this)">
+    <span class="mob-icon">✈️</span>เดินทาง
+  </button>
+  <button class="mob-btn" id="mb-menu" onclick="openMobMenu()">
+    <span class="mob-icon">☰</span>ทุกบท
+  </button>
+</div>
+
+<script>
+const PANELS = ['home','qref','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10','kubota'];
+
+function show(id, navEl) {
+  PANELS.forEach(function(p) {
+    var el = document.getElementById('panel-' + p);
+    if (el) el.classList.remove('active');
+  });
+  var target = document.getElementById('panel-' + id);
+  if (target) target.classList.add('active');
+  var src = document.getElementById('searchResultsContainer');
+  if (src) src.style.display = 'none';
+  document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+  if (navEl) navEl.classList.add('active');
+  try { window.scrollTo(0, 0); } catch(e) {}
+}
+
+function goPage(id) {
+  show(id, null);
+  closeMobMenu();
+}
+
+function setMobActive(btn) {
+  document.querySelectorAll('.mob-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+}
+
+function openMobMenu() {
+  document.getElementById('mobMenu').classList.add('open');
+}
+function closeMobMenu() {
+  document.getElementById('mobMenu').classList.remove('open');
+}
+
+const SEARCH_DATA = [
+  { id:'ch1', ch:'บทที่ 1', title:'การจ้างงาน & เริ่มงาน', kw:'จ้างงาน ทดลองงาน สัญญา พนักงานใหม่ 120 วัน บรรจุ เริ่มงาน ลาออก 30 วัน' },
+  { id:'ch2', ch:'บทที่ 2', title:'เวลาทำงาน & วันหยุด', kw:'เวลาทำงาน วันหยุด ประเพณี 13 วัน พักเที่ยง พักเช้า 08.00 17.00 48 ชั่วโมง อาทิตย์ เสาร์' },
+  { id:'ch3', ch:'บทที่ 3', title:'การลา', kw:'ลาพักร้อน 10 14 18 วัน ลาป่วย 30 75 150 ลากิจ 5 วัน ลาคลอด 98 53 annual sick personal maternity ทหาร บวช' },
+  { id:'ch4', ch:'บทที่ 4', title:'ค่าจ้าง & OT', kw:'OT ล่วงเวลา 1.5 3 เท่า เงินเดือน 240 28 เบี้ยกะ กลางคืน 110 200 เบี้ยขยัน 500 600 1000 JLPT ภาษาญี่ปุ่น N1 N2 N3 น้ำมัน 7.30 4.90 สิ่งแวดล้อม 400' },
+  { id:'ch5', ch:'บทที่ 5', title:'สวัสดิการ', kw:'สวัสดิการ ประกัน สุขภาพ OPD IPD 15000 1700 1300 ทันตกรรม PVD กองทุน 5 6 7 8 10 เปอร์เซ็น อุบัติเหตุ 300000 1000000 เสียชีวิต สมรส บุตร ครอบครัว' },
+  { id:'ch6', ch:'บทที่ 6', title:'ความปลอดภัย & IT', kw:'ความปลอดภัย อาวุธ ยาเสพติด IT อีเมล สูบบุหรี่ ตรวจค้น PPE ตรวจสุขภาพ' },
+  { id:'ch7', ch:'บทที่ 7', title:'เรื่องส่วนตัว', kw:'ประเมินผล ขาดงาน ข้อมูลส่วนตัว HR 2 ครั้ง ปี 6 เดือน บัญชีธนาคาร' },
+  { id:'ch8', ch:'บทที่ 8', title:'ค่าเดินทาง', kw:'เดินทาง เบี้ยเลี้ยง 300 ที่พัก 1300 900 น้ำมัน ต่างประเทศ USD JPY เครื่องบิน Business economy อาหาร' },
+  { id:'ch9', ch:'บทที่ 9', title:'จรรยาบรรณ & วินัย', kw:'จรรยาบรรณ วินัย โทษ เลิกจ้าง ร้องทุกข์ ผลประโยชน์ทับซ้อน ของขวัญ ปลดออก พักงาน ร้ายแรง Open Door' },
+  { id:'ch10', ch:'บทที่ 10', title:'ค่าชดเชย & สิ้นสุดสัญญา', kw:'ค่าชดเชย เกษียณ 55 ลาออก เลิกจ้าง 30 90 180 240 300 400 วัน ปรับโครงสร้าง ย้าย severance' },
+  { id:'kubota', ch:'ภาคผนวก', title:'นโยบาย Kubota Group', kw:'คูโบต้า นโยบาย หลักการ แนวปฏิบัติ ลูกค้า สิ่งแวดล้อม สิทธิมนุษยชน ทรัพย์สินทางปัญญา insider trading ข้อมูลลับ ของขวัญ สินบน whistleblower จรรยาบรรณ kubota group' },
+];
+
+function doSearch(val) {
+  const q = val.trim().toLowerCase();
+  if (!q) {
+    document.getElementById('searchResultsContainer').style.display = 'none';
+    return;
+  }
+  document.getElementById('searchResultsContainer').style.display = 'block';
+  PANELS.forEach(p => {
+    const el = document.getElementById('panel-' + p);
+    if (el) el.classList.remove('active');
+  });
+  const matches = SEARCH_DATA.filter(d => d.kw.toLowerCase().includes(q) || d.title.toLowerCase().includes(q));
+  const html = matches.length
+    ? matches.map(m => `
+      <div class="search-result-item" onclick="show('${m.id}',null);document.getElementById('searchResultsContainer').style.display='none';document.getElementById('searchInput').value='';">
+        <div class="sri-ch">${m.ch}</div>
+        <div class="sri-title">${m.title}</div>
+      </div>`).join('')
+    : '<div style="color:var(--text2);padding:16px 0">ไม่พบผลลัพธ์ — ลองคำค้นอื่น</div>';
+  document.getElementById('searchResults').innerHTML = html;
+}
+</script>
+</body>
+</html>
