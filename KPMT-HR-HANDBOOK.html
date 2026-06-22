@@ -286,10 +286,10 @@ ul.list li { margin-bottom: 5px; font-size: 14px; }
 .mobile-bar { display: none; }
 .mob-menu-overlay { display: none; }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   body { flex-direction: column; overflow-y: auto; height: auto; }
-  .sidebar { display: none; }
-  .main { width: 100%; padding-top: 8px; padding-bottom: 64px; overflow-y: visible; height: auto; flex: none; }
+  .sidebar { display: none !important; }
+  .main { width: 100% !important; padding-top: 8px; padding-bottom: 64px; overflow-y: visible; height: auto; flex: none; }
   .panel { padding: 14px 14px 24px; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .qref-grid { grid-template-columns: 1fr; }
@@ -1533,9 +1533,22 @@ ul.list li { margin-bottom: 5px; font-size: 14px; }
   <button class="mob-btn" id="mb-ch8" onclick="goPage('ch8');setMobActive(this)">
     <span class="mob-icon">✈️</span>เดินทาง
   </button>
-  <button class="mob-btn" id="mb-menu" onclick="openMobMenu()">
-    <span class="mob-icon">☰</span>ทุกบท
+  <button class="mob-btn" id="mb-search" onclick="toggleMobSearch()">
+    <span class="mob-icon">🔍</span>ค้นหา
   </button>
+  <button class="mob-btn" id="mb-menu" onclick="openMobMenu()">
+    <span class="mob-icon">☰</span>เมนู
+  </button>
+</div>
+
+<!-- Mobile Search Overlay -->
+<div id="mobSearchOverlay" style="display:none; position:fixed; inset:0; background:var(--navy); z-index:300; padding:16px;">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+    <input id="mobSearchInput" placeholder="🔍 ค้นหา เช่น ลาคลอด OT ทันตกรรม..." oninput="doMobSearch(this.value)" autocomplete="off"
+      style="flex:1; background:var(--bg3); border:1px solid var(--teal); border-radius:10px; color:var(--text); font-family:'Sarabun',sans-serif; font-size:15px; padding:10px 14px; outline:none;">
+    <button onclick="closeMobSearch()" style="background:none; border:none; color:var(--text2); font-size:22px; cursor:pointer; padding:4px 8px;">✕</button>
+  </div>
+  <div id="mobSearchResults"></div>
 </div>
 
 <script>
@@ -1570,6 +1583,30 @@ function openMobMenu() {
 }
 function closeMobMenu() {
   document.getElementById('mobMenu').classList.remove('open');
+}
+
+function toggleMobSearch() {
+  var o = document.getElementById('mobSearchOverlay');
+  var inp = document.getElementById('mobSearchInput');
+  o.style.display = 'block';
+  setTimeout(function(){ inp.focus(); }, 100);
+  document.getElementById('mobSearchResults').innerHTML = '';
+}
+function closeMobSearch() {
+  document.getElementById('mobSearchOverlay').style.display = 'none';
+}
+function doMobSearch(val) {
+  var q = val.trim().toLowerCase();
+  var el = document.getElementById('mobSearchResults');
+  if (!q) { el.innerHTML = ''; return; }
+  var matches = SEARCH_DATA.filter(function(d){ return d.kw.toLowerCase().includes(q) || d.title.toLowerCase().includes(q); });
+  if (!matches.length) { el.innerHTML = '<div style="color:var(--text3);padding:12px">ไม่พบผลลัพธ์</div>'; return; }
+  el.innerHTML = matches.map(function(m){
+    return '<div onclick="goPage(\''+m.id+'\');closeMobSearch()" style="padding:14px 4px;border-bottom:1px solid var(--border2);cursor:pointer;color:var(--text2);">'+
+      '<div style="font-size:11px;color:var(--teal);">'+m.ch+'</div>'+
+      '<div style="font-size:15px;font-weight:600;color:var(--text);">'+m.title+'</div>'+
+    '</div>';
+  }).join('');
 }
 
 const SEARCH_DATA = [
