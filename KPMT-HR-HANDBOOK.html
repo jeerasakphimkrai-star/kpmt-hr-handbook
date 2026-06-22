@@ -287,9 +287,9 @@ ul.list li { margin-bottom: 5px; font-size: 14px; }
 .mob-menu-overlay { display: none; }
 
 @media (max-width: 768px) {
-  body { flex-direction: column; }
+  body { flex-direction: column; overflow-y: auto; height: auto; }
   .sidebar { display: none; }
-  .main { width: 100%; padding-top: 8px; padding-bottom: 64px; }
+  .main { width: 100%; padding-top: 8px; padding-bottom: 64px; overflow-y: visible; height: auto; flex: none; }
   .panel { padding: 14px 14px 24px; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .qref-grid { grid-template-columns: 1fr; }
